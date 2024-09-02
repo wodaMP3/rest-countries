@@ -1,14 +1,17 @@
-import Header from "./components/Header/Header";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
+import CountryDetails from "./components/Pages/CountryDetails";
 
-const App = () => {
- 
+const App: React.FC = () => {
   return (
-    <div className="">
-      <Header />
-      <Home />
-    </div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/country/:name" element={<CountryDetails />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
