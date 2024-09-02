@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     const navigate = useNavigate();
 
     const handleCardClick = (name: string) => {
-        navigate(`/country/${encodeURIComponent(name)}`);
+        navigate(`${name}`);
     };
 
     useEffect(() => {

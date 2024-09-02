@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export interface Country {
+export interface CountryProps {
     name: string;
     capital: string;
     region: string;
