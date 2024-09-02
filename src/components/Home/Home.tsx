@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Country, fetchCountries } from "../Service/Service"
+import './Home.css';
 
 
 const Home: React.FC = () => {
@@ -14,7 +15,7 @@ const Home: React.FC = () => {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             {countries.map(country => (
                 <div className="card" key={country.name.common}>
                     <h2>{country.name.common}</h2>
