@@ -2,11 +2,16 @@ import { useEffect, useState } from "react"
 import { Country, fetchCountries } from "../Service/Service"
 import './Home.css';
 import { useNavigate } from "react-router-dom";
-import CountryDetails from "../Pages/CountryDetails";
 
 
 const Home: React.FC = () => {
     const [countries, setCountries] = useState<Country[]>([]);
+    const [searchItem, setSeatchItem] = useState('');
+    const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
+
+    useEffect(() => {
+
+    })
     const navigate = useNavigate();
 
     const handleCardClick = (name: string) => {
@@ -17,9 +22,11 @@ const Home: React.FC = () => {
         const getCountries = async () => {
             const countriesData = await fetchCountries();
             setCountries(countriesData);
+            setFilteredCountries(countriesData);
         }
         getCountries()
     }, []);
+
 
     return (
         <div className="container">
