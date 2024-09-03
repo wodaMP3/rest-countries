@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Country, fetchCountries } from "../Service/Service"
 import './Home.css';
 import { useNavigate } from "react-router-dom";
+import ScrollToTopButton from "../scrollBtn/scrollBtn";
 
 
 const Home: React.FC = () => {
@@ -9,9 +10,6 @@ const Home: React.FC = () => {
     const [searchItem, setSeatchItem] = useState('');
     const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
 
-    useEffect(() => {
-
-    })
     const navigate = useNavigate();
 
     const handleCardClick = (name: string) => {
@@ -47,6 +45,8 @@ const Home: React.FC = () => {
             placeholder="Search for a country..."
             className="w-full p-2 mb-4 text-lg border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+        <ScrollToTopButton />
+
             
         <div className="container">
             {filteredCountries.map(country => (
