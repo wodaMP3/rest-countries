@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../../index.css';
 
 interface Country {
@@ -30,6 +30,12 @@ const CountryDetails: React.FC = () => {
         getCountry();
     }, [name]);
 
+    const navigate = useNavigate();
+
+    const handleBackBtn = () => {
+        navigate('/');
+    }
+
     return (
         <section className="flex flex-col items-center p-8 max-w-3xl mx-auto bg-white shadow-lg rounded-lg transform transition-transform duration-300 hover:-translate-y-2">
             {country.map((item) => (
@@ -50,6 +56,12 @@ const CountryDetails: React.FC = () => {
                             Population: {item.population.toLocaleString()}
                         </p>
                     </article>
+
+                    <button
+                    onClick={handleBackBtn}
+                    >
+                        Back
+                    </button>
                 </div>
             ))}
         </section>

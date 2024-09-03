@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Country, fetchCountries } from "../Service/Service"
 import './Home.css';
-import { useFetcher, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const Home: React.FC = () => {
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             />
             
         <div className="container">
-            {countries.map(country => (
+            {filteredCountries.map(country => (
                 <div className="card" key={country.name.common}
                 onClick={() => {handleCardClick(country.name.common)}}>
                     <h2>{country.name.common}</h2>
