@@ -7,16 +7,11 @@ const ScrollToTopButton: React.FC = () => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
       const windowHeight = document.documentElement.clientHeight;
-      if (scrollTop > windowHeight) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(scrollTop > windowHeight);
     };
 
     window.addEventListener('scroll', handleScroll);
     
-    // Удаление обработчика при размонтировании компонента
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -30,19 +25,9 @@ const ScrollToTopButton: React.FC = () => {
     <button
       id="up"
       onClick={scrollToTop}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        padding: '10px',
-        backgroundColor: '#007BFF',
-        color: 'white',
-        border: 'none',
-        borderRadius: '50%',
-        cursor: 'pointer',
-        transition: 'opacity 0.3s ease',
-      }}
+      className={`fixed bottom-5 right-5 p-3 bg-blue-500 text-white rounded-full shadow-md transition-opacity duration-300 ease-in-out ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      } hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75`}
     >
       ↑
     </button>
